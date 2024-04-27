@@ -1,5 +1,8 @@
 package ptbeWeek4JavaCodingProject;
 
+import java.util.Arrays;
+
+
 public class PTBEWeek4CodingProject {
 
 	public static void main(String[] args) {
@@ -41,7 +44,7 @@ public class PTBEWeek4CodingProject {
 		for(int age : ages2) {
 			total += age;
 	} int average = total / length;
-	System.out.println("Average of array : "+average);
+	System.out.println("Average of array : "+ average);
 	
 // 2. Create an array of String called names that contains the following values: “Sam”, “Tommy”, “Tim”,
 // 	  “Sally”, “Buck”, “Bob”.
@@ -78,6 +81,62 @@ public class PTBEWeek4CodingProject {
 //  	Arrays have a zero based index, so the first element of the array is arrayName[0]  Example:
 	System.out.println(names[0]);
 	
+// 5. Create a new array of int called nameLengths. Write a loop to iterate over the previously created
+//    names array and add the length of each name to the nameLengths array.	
+	int[] nameLengths = Arrays.stream(names)
+						.mapToInt(String::length)
+						.toArray();
+	System.out.println(Arrays.toString(nameLengths));
+	
+// 6. Write a loop to iterate over the nameLengths array and calculate the sum of all the elements in the
+//	  array. Print the result to the console.
+	int sum = 0;
+	for(int name : nameLengths) {
+		sum += name;
 	}
+	System.out.println("The sum of all of the elements is: " + sum);
 
+// 7)
+	System.out.println(multipleWords("Bye, Falicia!", 4));
+	
+// 8) 
+	System.out.println(fullName("Shirley", "Jones"));
+	
+// 9)
+	System.out.println(higherThanHundo(ages2));
+	
+// 10)
+	double[] twiceArr = {5.7, 99.25, 5.6, 19393.3, 2.4};
+	System.out.println(arrAve(twiceArr));
+	
+	}
+	
+//  METHODS:
+	
+// 7. Write a method that takes a String, word, and an int, n, as arguments and returns the word 
+//	  concatenated to itself n number of times. (i.e. if I pass in “Hello” and 3, I expect the method to
+//	  return “HelloHelloHello”).	
+	public static String multipleWords(String word, int num) {
+		String multipliedWords = "";
+		for(int i = 0; i < num; i++) {
+			multipliedWords += word;
+		} return multipliedWords;
+	}
+	
+// 8. Write a method that takes two Strings, firstName and lastName, and returns a full name (the full
+//	 name should be the first and the last name as a String separated by a space).	
+	public static String fullName(String firstName, String lastName) {
+		return firstName + " " + lastName;
+	}
+	
+// 9. Write a method that takes an array of int and returns true if the sum of all the ints in the array
+//	  is greater than 100.
+	public static Boolean higherThanHundo(int[] arr) {
+		return Arrays.stream(arr).sum() > 100;
+	}
+// 10. Write a method that takes an array of double and returns the average of all the elements in the
+//	   array. 	
+	public static Double arrAve(double[] arr) {
+		return Arrays.stream(arr).average().orElse(Double.NaN);
+	}
 }
