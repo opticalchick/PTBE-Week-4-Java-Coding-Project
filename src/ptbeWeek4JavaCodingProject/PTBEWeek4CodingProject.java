@@ -83,6 +83,10 @@ public class PTBEWeek4CodingProject {
 	
 // 5. Create a new array of int called nameLengths. Write a loop to iterate over the previously created
 //    names array and add the length of each name to the nameLengths array.	
+//  .stream separates each of the elements of the array, .mapToInt changes the str to an int length, 
+//  .toArray returns the map to an Array, then .toString returns a string representation of the 
+//	nameLengths array.
+	
 	int[] nameLengths = Arrays.stream(names)
 						.mapToInt(String::length)
 						.toArray();
@@ -96,13 +100,13 @@ public class PTBEWeek4CodingProject {
 	}
 	System.out.println("The sum of all of the elements is: " + sum);
 
-// 7)
+// 7)  Method to concatenate string as many times as specified by user
 	System.out.println(multipleWords("Bye, Falicia!", 4));
 	
-// 8) 
+// 8) Prints to console the person's full name with a space between first and last name
 	System.out.println(fullName("Shirley", "Jones"));
 	
-// 9)
+// 9)Prints result of method to check if the sum of an array is higher than 100
 	System.out.println(higherThanHundo(ages2));
 	
 // 10)
@@ -113,7 +117,7 @@ public class PTBEWeek4CodingProject {
 	double[] moreArray = {6.2, 5.8, 67.9, 123432.9};
 	System.out.println(isGreater(twiceArr, moreArray));
 // 12) 
-	boolean isHotOutside = false;
+	boolean isHotOutside = true;
 	double moneyInPocket = 11;
 	System.out.println(willBuyDrink(isHotOutside, moneyInPocket));
 	
@@ -128,6 +132,8 @@ public class PTBEWeek4CodingProject {
 // 7. Write a method that takes a String, word, and an int, n, as arguments and returns the word 
 //	  concatenated to itself n number of times. (i.e. if I pass in “Hello” and 3, I expect the method to
 //	  return “HelloHelloHello”).	
+//    starting with an empty string, then a for loop to iterate through the number of times given by user, 
+//    with the string added to the empty string at each iteration, and returning when the loop is done.	
 	public static String multipleWords(String word, int num) {
 		String multipliedWords = "";
 		for(int i = 0; i < num; i++) {
@@ -171,6 +177,7 @@ public class PTBEWeek4CodingProject {
 	
 // 	13. Create a method of your own that solves a problem. In comments, write what the method does and
 //	    why you created it.
+//  	This method is to calculate sales tax when given a subtotal. 	
 	public static double totalWithTax(double subtotal) {
 		double total = subtotal * 1.08;
 		return total;
