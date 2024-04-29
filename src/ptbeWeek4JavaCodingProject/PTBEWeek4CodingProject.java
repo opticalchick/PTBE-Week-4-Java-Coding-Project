@@ -29,7 +29,7 @@ public class PTBEWeek4CodingProject {
 // 1)		
 	int[] ages = {3, 9, 23, 64, 2, 8, 28, 93};
 	
-// 1) a:	
+// 1) a:	first element is accessed by [0] index, and the last by the length-1 (since index is zero based)
 	int subtract = ((ages[0]) - (ages[ages.length-1]));	
 	System.out.println(subtract);
 	
@@ -109,6 +109,18 @@ public class PTBEWeek4CodingProject {
 	double[] twiceArr = {5.7, 99.25, 5.6, 19393.3, 2.4};
 	System.out.println(arrAve(twiceArr));
 	
+// 11)
+	double[] moreArray = {6.2, 5.8, 67.9, 123432.9};
+	System.out.println(isGreater(twiceArr, moreArray));
+// 12) 
+	boolean isHotOutside = false;
+	double moneyInPocket = 11;
+	System.out.println(willBuyDrink(isHotOutside, moneyInPocket));
+	
+// 13) 
+	double subtotal = 76.82;
+	System.out.printf("%, .2f",totalWithTax(subtotal));
+	
 	}
 	
 //  METHODS:
@@ -134,9 +146,35 @@ public class PTBEWeek4CodingProject {
 	public static Boolean higherThanHundo(int[] arr) {
 		return Arrays.stream(arr).sum() > 100;
 	}
+	
 // 10. Write a method that takes an array of double and returns the average of all the elements in the
 //	   array. 	
 	public static Double arrAve(double[] arr) {
 		return Arrays.stream(arr).average().orElse(Double.NaN);
 	}
+	
+// 11. Write a method that takes two arrays of double and returns true if the average of the elements in
+//     the first array is greater than the average of the elements in the second array.	
+	public static Boolean isGreater(double[] arr1, double[] arr2) {
+			return arrAve(arr1) > arrAve(arr2);
+	}
+	
+// 12. Write a method called willBuyDrink that takes a boolean isHotOutside, and a double moneyInPocket,
+//	   and returns true if it is hot outside and if moneyInPocket is greater than 10.50. 	
+	public static Boolean willBuyDrink(boolean isHotOutside, double moneyInPocket) {
+		if(isHotOutside == true && moneyInPocket > 10.50) {
+			return true;
+		}else {
+			return false;
+		}
+	}
+	
+// 	13. Create a method of your own that solves a problem. In comments, write what the method does and
+//	    why you created it.
+	public static double totalWithTax(double subtotal) {
+		double total = subtotal * 1.08;
+		return total;
+	}
+	
+	
 }
